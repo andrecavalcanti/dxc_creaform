@@ -1,0 +1,23 @@
+{
+  "id": "3760f97a-1b1e-42f3-87b8-06a3bed75bcf",
+  "name": "DXC_PROJECT",
+  "publisher": "DXC",
+  "brief": "DXC Brief 1",
+  "description": "DXC Mods",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "idRange": {
+    "from": 50000,
+    "to": 50149
+  },
+  "runtime": "1.0"
+}
