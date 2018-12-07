@@ -4,7 +4,7 @@ tableextension 50008 "DXCCustLedgerEntryTableExt" extends "Cust. Ledger Entry" /
     {
         field(50000;Comment;Text[250])
         {
-            
+            Editable = false;
         }
     }
     
