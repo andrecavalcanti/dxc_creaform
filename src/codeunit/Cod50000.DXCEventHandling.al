@@ -47,6 +47,15 @@ codeunit 50000 "DXCEventHandling"
         Rec."Created By" := USERID;  
     end;
 
+     [EventSubscriber(ObjectType::Table, 38, 'OnAfterValidateEvent', 'Buy-from Vendor No.', false, false)]
+    local procedure HandleAfterValidateNoOnPurchHeader(var Rec : Record "Purchase Header";var xRec : Record "Purchase Header";CurrFieldNo : Integer);
+    var
+                    
+    begin
+      
+        Rec."Created By" := UserId;
+    end;    
+
     //---Codeunits---
 
    
