@@ -12,6 +12,12 @@ tableextension 50000 "DXCSalesHeaderExtension" extends "Sales Header"
         {
 
         }
+
+        field(50002; CRM;  Boolean)
+        {
+            
+        }
+
     }  
 
 }
