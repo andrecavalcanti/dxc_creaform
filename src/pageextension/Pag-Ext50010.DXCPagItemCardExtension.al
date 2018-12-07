@@ -8,9 +8,18 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
             {
                 ApplicationArea = All;
             }  
-        }        
+        }   
+
+        addbefore("Cost is Adjusted")    
+        {
+            field("Inventory Value Zero";"Inventory Value Zero")
+            {
+                ApplicationArea = All;
+            }
+            
+        }
     }
-    
+        
     actions
     {
     }
