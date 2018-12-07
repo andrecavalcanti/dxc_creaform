@@ -6,7 +6,8 @@ pageextension 50022 "DXCPostedPurchCrMemoPageExt" extends "Posted Purchase Credi
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All; 
+                Editable = false;    
             }
         }       
         

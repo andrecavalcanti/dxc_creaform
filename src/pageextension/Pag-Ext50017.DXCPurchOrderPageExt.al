@@ -6,7 +6,8 @@ pageextension 50017 "DXCPurchOrderPageExt" extends "Purchase Order" //MyTargetPa
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All;   
+                Editable = false;  
             }
         }       
         

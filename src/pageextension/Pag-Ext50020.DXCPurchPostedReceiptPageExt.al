@@ -6,7 +6,8 @@ pageextension 50020 "DXCPurchPostedReceiptPageExt" extends "Posted Purchase Rece
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All; 
+                Editable = false;    
             }
         }       
         

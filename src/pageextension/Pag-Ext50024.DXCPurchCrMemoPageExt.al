@@ -6,7 +6,8 @@ pageextension 50024 "DXCPurchCrMemoPageExt" extends "Purchase Credit Memo" //MyT
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All;  
+                Editable = false;   
             }
         }       
         

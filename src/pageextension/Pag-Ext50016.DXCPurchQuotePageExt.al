@@ -6,7 +6,9 @@ pageextension 50016 "DXCPurchQuotePageExt" extends "Purchase Quote" //MyTargetPa
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All; 
+                Editable = false;
+
             }
         }       
         

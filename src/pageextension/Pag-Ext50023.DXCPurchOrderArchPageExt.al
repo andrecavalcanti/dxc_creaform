@@ -6,7 +6,8 @@ pageextension 50023 "DXCPurchOrderArchPageExt" extends "Purchase Order Archive" 
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All;  
+                Editable = false;   
             }
         }       
         

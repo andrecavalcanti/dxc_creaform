@@ -6,7 +6,8 @@ pageextension 50021 "DXCPostedPurchInvPageExt" extends "Posted Purchase Invoice"
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All;  
+                Editable = false;   
             }
         }       
         

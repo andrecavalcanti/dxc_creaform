@@ -6,7 +6,8 @@ pageextension 50018 "DXCPurchInvPageExt" extends "Purchase Invoice" //MyTargetPa
         {
             field("Created By";"Created By")
             {
-                ApplicationArea = All;     
+                ApplicationArea = All;
+                Editable = false;     
             }
         }       
         
