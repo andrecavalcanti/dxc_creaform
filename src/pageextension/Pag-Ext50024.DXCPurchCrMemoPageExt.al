@@ -1,4 +1,4 @@
-pageextension 50018 "DXCPurchCrMemoPageExt" extends "Purchase Credit Memo" //MyTargetPageId
+pageextension 50024 "DXCPurchCrMemoPageExt" extends "Purchase Credit Memo" //MyTargetPageId
 {
     layout
     {     

@@ -24,7 +24,7 @@ codeunit 50000 "DXCEventHandling"
 
     // ---T23---
     [EventSubscriber(ObjectType::Table, 23, 'OnAfterInsertEvent', '', false, false)]
-    local procedure HandleAfterInsertOnVendor(var Rec : Record Vendor;RunTrigger : Boolean);
+    local procedure HandleAfterInsertOnVendor(var Rec : Record Vendor; RunTrigger : Boolean);
     begin
 
         Rec."Check Date Format" := Rec."Check Date Format"::"YYYY MM DD";
@@ -38,6 +38,13 @@ codeunit 50000 "DXCEventHandling"
 
         CustLedgerEntry.Comment := GenJournalLine.Comment;    
             
+    end;
+
+    //---T38---
+    [EventSubscriber(ObjectType::Table, 38, 'OnAfterInsertEvent', '', false, false)]
+    local procedure HandleAfterInsertOnPurchHeader(var Rec : Record "Purchase Header"; Runtrigger : Boolean);
+    begin
+        Rec."Created By" := USERID;  
     end;
 
     //---Codeunits---
