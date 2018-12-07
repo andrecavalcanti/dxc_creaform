@@ -31,7 +31,17 @@ codeunit 50000 "DXCEventHandling"
         Rec.Blocked := Rec.Blocked::All;
     end;
 
+    //---T21---
+    [EventSubscriber(ObjectType::Table, 21, 'OnAfterCopyCustLedgerEntryFromGenJnlLine', '', false, false)]
+    local procedure HandleAfterCopyCustLedgerEntryFromGenJnlLineOnCustLedgerEntry(var CustLedgerEntry : Record "Cust. Ledger Entry"; GenJournalLine : Record "Gen. Journal Line");
+    begin
+
+        CustLedgerEntry.Comment := GenJournalLine.Comment;    
+            
+    end;
+
     //---Codeunits---
+
    
 }
 
