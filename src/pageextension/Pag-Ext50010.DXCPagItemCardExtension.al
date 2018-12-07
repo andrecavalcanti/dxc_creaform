@@ -8,6 +8,11 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
             {
                 ApplicationArea = All;
             }  
+
+            field("Include Forecast";"Include Forecast")
+            {
+                
+            }
         }   
 
         addbefore("Cost is Adjusted")    

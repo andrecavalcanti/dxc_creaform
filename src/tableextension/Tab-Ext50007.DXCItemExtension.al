@@ -6,9 +6,14 @@ tableextension 50007 "DXCItemExtension" extends Item //MyTargetTableId
         {
             TableRelation = "Salesperson/Purchaser";
         }
-          field(50001; CRM;  Boolean)
+        field(50001; CRM;  Boolean)
         {
             
+        }
+        // AMC-64
+        field(50002; "Include Forecast"; Boolean)
+        {
+
         }
     }
     
