@@ -8,7 +8,7 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
             {
                 ApplicationArea = All;
             }  
-
+            // AMC-64
             field("Include Forecast";"Include Forecast")
             {
                 
@@ -23,6 +23,7 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
             }
             
         }
+        
     }
         
     actions
