@@ -1,7 +1,6 @@
 codeunit 50000 "DXCEventHandling"
 {
-    // version EC1.02
-
+    //AMC-39 AC 12-11-18 Production Forecast - Change the default view by from Day to Week
 
     trigger OnRun();
     begin
@@ -54,7 +53,17 @@ codeunit 50000 "DXCEventHandling"
     begin
       
         Rec."Created By" := UserId;
-    end;    
+    end;   
+
+    // ---Page---
+
+    //---p9245---
+    //AMC-39
+    [EventSubscriber(ObjectType::Page, 9245, 'OnOpenPageEvent', '', false, false)]
+    local procedure HandleOpenPageOnProductionForecastMatrix(var Rec : Record Item)
+    begin
+        Rec."Include Forecast" := true;
+    end; 
 
     //---Codeunits---
 

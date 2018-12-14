@@ -453,10 +453,10 @@ report 50001 "DXCCheckStubCheckStubAmetek"
                     }
                     column(PrnChkCheckToAddr_CheckStyle__CA_1_;PrnChkCheckToAddr[CheckStyle::CA,1])
                     {
-                    }
-                    column(PrnChkCheckAmountText_CheckStyle__US__;PrnChkCheckAmountText[CheckStyle::US])
+                    }  
+                    column(PrnChkCheckAmountText_CheckStyle__US_;PrnChkCheckAmountText[CheckStyle::US])
                     {
-                    }
+                    }                
                     column(PrnChkCheckDateText_CheckStyle__US_;PrnChkCheckDateText[CheckStyle::US])
                     {
                     }
