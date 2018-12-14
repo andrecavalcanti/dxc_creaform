@@ -1,4 +1,4 @@
-pageextension 50028 DXCProductionForecastNamesExt extends "Production Forecast Names" //MyTargetPageId
+pageextension 50028 "DXCProductionForecastNamesExt" extends "Production Forecast Names" //MyTargetPageId
 {
     
     layout
