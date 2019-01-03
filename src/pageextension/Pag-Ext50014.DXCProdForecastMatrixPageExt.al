@@ -15,9 +15,9 @@ pageextension 50014 "DXCProdForecastMatrixPageExt" extends "Production Forecast 
     
     actions
     {
-    }
+    }    
 
-    trigger OnOpenPage();
+    trigger OnAfterGetRecord();
     begin
         "Include Forecast" := true;
     end;
