@@ -284,7 +284,7 @@ tableextension 50009 "DXCAsmToOrderLinkExtension" extends "Assemble-to-Order Lin
         ReservEntry : Record "Reservation Entry";
         AsmHeaderReserve : Codeunit "Assembly Header-Reserve";
     begin
-        GetAsmHeader;
+        GetAsmHeaderDXC;
 
         AsmHeaderReserve.FilterReservFor(ReservEntry,AsmHeaderDXC);
         AsmHeaderReserve.DeleteLine(AsmHeaderDXC);
