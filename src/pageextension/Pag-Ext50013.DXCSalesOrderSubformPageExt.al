@@ -32,7 +32,7 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
     actions
     {
     }
-
+    // >> AMC-68
     local procedure QtyToAsmToOrderOnAfterValidateDXC();
     begin
         CurrPage.SAVERECORD;
@@ -40,4 +40,5 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
           AutoReserve;
         CurrPage.UPDATE(true);
     end;
+    // << AMC-68
 }

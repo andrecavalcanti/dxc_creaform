@@ -1,9 +1,11 @@
 // AMC-63 AC 01-03-19 CRM Sales Order Line Integration - New Field
+// AMC-68 AC 01-03-19 Sales Order - Assemble to Stock Process Update
 tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
 {
     fields
     {
         // Add changes to table fields here
+        // >> AMC-68
         field(50000; "Qty. to Assemble to Stock"; Decimal)
         {
            BlankZero = true; 
@@ -46,6 +48,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
             end;
            
         }
+        // << AMC-68
 
         field(50001; "Qty. to Asm. to Stock (Base)"; Decimal)
         {
