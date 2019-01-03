@@ -1,3 +1,4 @@
+// AMC-68 AC 01-03-19 Sales Order - Assemble to Stock Process Update
 tableextension 50009 "DXCAsmToOrderLinkExtension" extends "Assemble-to-Order Link" //MyTargetTableId
 {
     fields

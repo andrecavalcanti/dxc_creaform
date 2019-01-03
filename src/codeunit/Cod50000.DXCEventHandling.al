@@ -1,3 +1,4 @@
+// AMC-39 AC 01-03-18 Production Forecast - Change the default view by from Day to Week
 codeunit 50000 "DXCEventHandling"
 {
     //AMC-39 AC 12-11-18 Production Forecast - Change the default view by from Day to Week
@@ -66,12 +67,14 @@ codeunit 50000 "DXCEventHandling"
     // ---Page---
 
     //---P9245---
-    //AMC-39
+    
+    // >> AMC-39
     [EventSubscriber(ObjectType::Page, 9245, 'OnOpenPageEvent', '', false, false)]
     local procedure HandleOpenPageOnProductionForecastMatrix(var Rec : Record Item)
     begin
         Rec."Include Forecast" := true;
     end; 
+    // >> AMC-39
 
     //---Codeunits---
     

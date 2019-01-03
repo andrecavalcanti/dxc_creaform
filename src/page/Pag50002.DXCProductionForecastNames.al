@@ -1,3 +1,4 @@
+// AMC-39 AC 01-03-18 Production Forecast - Change the default view by from Day to Week
 page 50002 "DXCProductionForecastNames"
 {
     // version NAVW111.00
