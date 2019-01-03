@@ -15,6 +15,11 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
             field("Qty. to Assemble to Stock";"Qty. to Assemble to Stock")
             {
                 ApplicationArea = All;
+
+                trigger OnValidate();
+                begin
+                    QtyToAsmToOrderOnAfterValidateDXC;
+                end;
             }  
 
         }      
@@ -24,4 +29,12 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
     actions
     {
     }
+
+    local procedure QtyToAsmToOrderOnAfterValidateDXC();
+    begin
+        CurrPage.SAVERECORD;
+        if Reserve = Reserve::Always then
+          AutoReserve;
+        CurrPage.UPDATE(true);
+    end;
 }
