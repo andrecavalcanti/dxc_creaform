@@ -263,7 +263,7 @@ tableextension 50009 "DXCAsmToOrderLinkExtension" extends "Assemble-to-Order Lin
           exit;
 
         if Type = Type::Sale then begin
-          GetAsmHeader;
+          GetAsmHeaderDXC;
 
           AsmHeaderReserve.SetBinding(ReservEntry.Binding::"Order-to-Order");
           AsmHeaderReserve.SetDisallowCancellation(true);
