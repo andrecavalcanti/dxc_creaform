@@ -1,3 +1,4 @@
+// AMC-63 AC 01-03-19 CRM Sales Order Line Integration - New Field
 tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
 {
     fields
@@ -55,6 +56,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
             end;
         }
 
+        // >> AMC-63
         field(50002; "ATS Whse. Outstanding Qty"; Decimal)
         {
             
@@ -64,6 +66,38 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         {
             
         }
+
+        field(50004; "Hidden On Invoice"; Boolean)
+        {
+            
+        }
+        
+        field(50005; "Visible Unit Price"; Decimal)
+        {
+            
+        }
+        
+        field(50006; "CRM Line Number"; Integer)
+        {
+            
+        }
+        
+        field(50007; "List Price"; Decimal)
+        {
+           
+        }
+        
+        field(50008; "RMA Serial Number";  Text[50])
+        {
+            
+        }
+
+        field(50009; "To Be Supplied By"; Text[20])
+        {
+            
+        }
+        // << AMC-63
+        
         
     }  
     var
