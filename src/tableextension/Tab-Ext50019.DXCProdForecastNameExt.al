@@ -1,4 +1,4 @@
-tableextension 50020 "DXCProdForecastNameExt" extends "Production Forecast Name" //MyTargetTableId
+tableextension 50019 "DXCProdForecastNameExt" extends "Production Forecast Name" //MyTargetTableId
 {
     fields
     {
