@@ -290,6 +290,8 @@ page 50000 "DXCProductionForecast"
 
         //>> AMC-39 
         PeriodType := PeriodType::Week;
+        ProdForecastName.Get(ProductionForecastName);
+        LocationFilter := ProdForecastName."Location Code";
         // << AMC-39
 
         SetColumns(SetWanted::First);
@@ -309,6 +311,7 @@ page 50000 "DXCProductionForecast"
         SetWanted : Option First,Previous,Same,Next,PreviousColumn,NextColumn;
         PKFirstRecInCurrSet : Text[100];
         CurrSetLength : Integer;
+        ProdForecastName: Record 99000851;         
 
     [Scope('Personalization')]
     procedure SetColumns(SetWanted : Option Initial,Previous,Same,Next,PreviousSet,NextSet);

@@ -32,6 +32,12 @@ page 50002 "DXCProductionForecastNames"
                                 FRC='Indique une brève description de la prévision de production.',
                                 ENC='Specifies a brief description of the production forecast.';
                 }
+
+                field("Location Code";"Location Code")
+                {
+                    ApplicationArea = Manufacturing;
+                    
+                }
             }
         }
         area(factboxes)
