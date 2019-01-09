@@ -48,7 +48,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
             end;
            
         }
-        // << AMC-68
+        
 
         field(50001; "Qty. to Asm. to Stock (Base)"; Decimal)
         {
@@ -59,7 +59,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
             end;
         }
 
-        // >> AMC-63
+       
         field(50002; "ATS Whse. Outstanding Qty"; Decimal)
         {
             
@@ -69,7 +69,9 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         {
             
         }
+        // << AMC-68
 
+         // >> AMC-63
         field(50004; "Hidden On Invoice"; Boolean)
         {
             
@@ -77,25 +79,25 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         
         field(50005; "Visible Unit Price"; Decimal)
         {
-            
+            DecimalPlaces = 2:2;
         }
         
-        field(50006; "CRM Line Number"; Integer)
+        field(50006; "CRM Line Number"; Code[9])
         {
             
         }
         
         field(50007; "List Price"; Decimal)
         {
-           
+           DecimalPlaces = 2:2;
         }
         
-        field(50008; "RMA Serial Number";  Text[50])
+        field(50008; "RMA Serial Number";  Text[20])
         {
             
         }
 
-        field(50009; "To Be Supplied By"; Text[20])
+        field(50009; "To Be Supplied By"; Text[10])
         {
             
         }
