@@ -1,7 +1,7 @@
 // AMC-68 AC 01-03-19 Sales Order - Assemble to Stock Process Update
 tableextension 50009 "DXCAsmToOrderLinkExtension" extends "Assemble-to-Order Link" //MyTargetTableId
 {
-    fields
+   /*  fields
     {
         
     }
@@ -288,5 +288,5 @@ tableextension 50009 "DXCAsmToOrderLinkExtension" extends "Assemble-to-Order Lin
 
         AsmHeaderReserve.FilterReservFor(ReservEntry,AsmHeaderDXC);
         AsmHeaderReserve.DeleteLine(AsmHeaderDXC);
-    end;
+    end; */
 }

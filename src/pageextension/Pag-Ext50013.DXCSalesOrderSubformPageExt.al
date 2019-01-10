@@ -12,7 +12,7 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
             }
         }
         // >> AMC-68
-        addafter("Qty. to Assemble to Order")
+  /*       addafter("Qty. to Assemble to Order")
         {
             field("Qty. to Assemble to Stock";"Qty. to Assemble to Stock")
             {
@@ -24,7 +24,7 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
                 end;
             }  
 
-        } 
+        }  */
         // << AMC-68     
         
     }
@@ -33,12 +33,12 @@ pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" 
     {
     }
     // >> AMC-68
-    local procedure QtyToAsmToOrderOnAfterValidateDXC();
-    begin
-        CurrPage.SAVERECORD;
-        if Reserve = Reserve::Always then
-          AutoReserve;
-        CurrPage.UPDATE(true);
-    end;
+    // local procedure QtyToAsmToOrderOnAfterValidateDXC();
+    // begin
+    //     CurrPage.SAVERECORD;
+    //     if Reserve = Reserve::Always then
+    //       AutoReserve;
+    //     CurrPage.UPDATE(true);
+    // end;
     // << AMC-68
 }

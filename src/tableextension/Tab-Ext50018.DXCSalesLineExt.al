@@ -6,7 +6,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
     {
         // Add changes to table fields here
         // >> AMC-68
-        field(50000; "Qty. to Assemble to Stock"; Decimal)
+    /*     field(50000; "Qty. to Assemble to Stock"; Decimal)
         {
            BlankZero = true; 
 
@@ -68,7 +68,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         field(50003; "ATS Whse. Outstanding Qty (Base)"; Decimal)
         {
             
-        }
+        } */
         // << AMC-68
 
          // >> AMC-63
@@ -111,7 +111,9 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         Text009 : TextConst ENU=' must be 0 when %1 is %2',ESM=' debe ser 0 cuando %1 es %2',FRC=' doit être 0 lorsque %1 est %2',ENC=' must be 0 when %1 is %2';
         Text031 : TextConst ENU='You must either specify %1 or %2.',ESM='Debe especificar %1 o %2.',FRC='Vous devez spécifier %1 ou %2.',ENC='You must either specify %1 or %2.';
         Text045 : TextConst ENU='cannot be more than %1',ESM='no puede ser superior a %1',FRC='ne peut être supérieur à %1',ENC='cannot be more than %1';
-    [Scope('Personalization')]
+    
+    // << AMC-68
+ /*    [Scope('Personalization')]
     procedure AutoAsmToOrderDXC();
     begin
         ATOLink.UpdateAsmFromSalesLineDXC(Rec);
@@ -143,7 +145,7 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         ATOLink : Record "Assemble-to-Order Link";
     begin
         ATOLink.ShowAsmToOrderLinesDXC(Rec);
-    end;
-
+    end; */
+    // << AMC-68
 }
 
