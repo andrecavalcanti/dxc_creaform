@@ -1,3 +1,4 @@
+// AMC-44 AC 01-13-19 Additonal Fields to Sales Header
 tableextension 50000 "DXCSalesHeaderExtension" extends "Sales Header"
 {
     fields
@@ -17,6 +18,32 @@ tableextension 50000 "DXCSalesHeaderExtension" extends "Sales Header"
         {
             
         }
+        // >> AMC-44
+        field(50003; "Purch. Order No."; Code[20])
+        {
+            Caption = 'Purch. Order No.';
+            DataClassification = ToBeClassified;
+        }
+        
+        field(50004; "Distributor/Agent Id"; Integer)
+        {
+            Caption = 'Distributor/Agent Id';
+            DataClassification = ToBeClassified;
+        }
+        
+        field(50005; "Finders Fee"; Decimal)
+        {
+            Caption = 'Finders Fee';
+            DataClassification = ToBeClassified;
+        }
+
+        field(50006; "Shipment Approved"; Boolean)
+        {
+            Caption = 'Shipment Approved';
+            DataClassification = ToBeClassified;
+        }
+        
+        // << AMC-44
 
     }  
 

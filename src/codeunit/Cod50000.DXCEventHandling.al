@@ -45,7 +45,7 @@ codeunit 50000 "DXCEventHandling"
         CustLedgerEntry.Comment := GenJournalLine.Comment;    
             
     end;
-    //---T37---
+    //---T37---    
    
 
     //---T38---

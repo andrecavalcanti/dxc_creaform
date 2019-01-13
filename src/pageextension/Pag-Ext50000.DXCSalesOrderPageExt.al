@@ -9,7 +9,7 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
                 ApplicationArea = All;
             }    
 
-             field("Order Type"; "Order Type")
+            field("Order Type"; "Order Type")
             {
                 ApplicationArea = All;                                     
             }
@@ -19,8 +19,30 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
                 ApplicationArea = All;
             }        
 
-        }      
-        
+        } 
+
+        addafter("Sell-to Contact")     
+        {
+            field("Distributor/Agent Id";"Distributor/Agent Id")
+            {
+                ApplicationArea = All;
+            }
+
+            field("Finders Fee";"Finders Fee")
+            {
+                ApplicationArea = All;
+            }
+        }
+
+        addafter("Ship-to Address")
+        {
+            field("Shipment Approved";"Shipment Approved")
+            {
+               ApplicationArea = All;
+            }
+            
+        }
+                
     }   
     
 }
