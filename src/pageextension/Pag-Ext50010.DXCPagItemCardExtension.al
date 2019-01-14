@@ -1,7 +1,9 @@
+// AMC-67 AC 01-14-19 Compliance Tab in Item Card
 pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPageId
 {
     layout
-    {
+    {      
+
         addafter("Purch. Unit of Measure")
         {
             field(Purchaser; Purchaser)
@@ -23,6 +25,67 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
             }
             
         }
+
+        // >> AMC-67
+
+        addafter(Description)
+        {
+            field("Description 2";"Description 2")
+            {
+
+            }
+
+            field("Commercial Invoice Description";"Commercial Invoice Description")
+            {
+
+            }
+        }
+
+        addafter("Automatic Ext. Texts")
+        {
+            field("Obsolesce Code";"Obsolesce Code")
+            {
+
+            }
+
+            field("Obsolesce Date";"Obsolesce Date")
+            {
+
+            }
+
+            field("Is Package";"Is Package")
+            {
+                
+            }
+        }
+        addafter(Warehouse)
+        {
+            group("Compliance")
+            {
+                field(ROHS;ROHS)
+                {
+                    ApplicationArea = All;
+                }
+
+                field(REACH;REACH)
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Conflict Minerals";"Conflict Minerals")
+                {
+                    ApplicationArea = All;
+                }
+
+                field(WEEE;WEEE)
+                {
+                    ApplicationArea = All;
+                }
+
+            }
+        }
+      
+        // << AMC-67
         
     }
         
