@@ -19,27 +19,27 @@ tableextension 50007 "DXCItemExtension" extends Item //MyTargetTableId
         // >>  AMC -67
         field(50003;"ROHS";Option)
         {
-            OptionMembers = "", Compliant, "Not compliant", "N/A", Inherit;                      
+            OptionMembers = " ", Compliant, "Not compliant", "N/A", Inherit;                      
         }
 
         field(50004;"REACH";Option)
         {
-            OptionMembers = "", Compliant, "Not compliant", "N/A", Inherit;                      
+            OptionMembers = " ", Compliant, "Not compliant", "N/A", Inherit;                      
         }
 
         field(50005;"Conflict Minerals";Option)
         {
-            OptionMembers = "","Conflict Free", "Indeterminable", Unknown;                      
+            OptionMembers = " ","Conflict Free", "Indeterminable", Unknown;                      
         }
 
         field(50006;"WEEE";Option)
         {
-            OptionMembers = "",Compliant, "Not compliant", "N/A", Inherit;                      
+            OptionMembers = " ",Compliant, "Not compliant", "N/A", Inherit;                      
         }
 
         field(50007;"Obsolesce Code";Option)
         {
-            OptionMembers = "","End of Line", "Not compliant", "Engineering Change Request";                      
+            OptionMembers = " ","End of Line", "Not compliant", "Engineering Change Request";                      
         }
 
         field(50008;"Obsolesce Date";Date)
