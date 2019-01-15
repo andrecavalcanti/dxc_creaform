@@ -25,10 +25,11 @@ tableextension 50000 "DXCSalesHeaderExtension" extends "Sales Header"
             DataClassification = ToBeClassified;
         }
         
-        field(50004; "Distributor/Agent Id"; Integer)
+        field(50004; "Distributor/Agent Id"; Code[20])
         {
             Caption = 'Distributor/Agent Id';
             DataClassification = ToBeClassified;
+            TableRelation = Customer;
         }
         
         field(50005; "Finders Fee"; Decimal)
