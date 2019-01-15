@@ -14,7 +14,25 @@ pageextension 50003 "DXCSalesCrMemoPageExt" extends "Sales Credit Memo" //MyTarg
                 ApplicationArea = All;                    
             }    
 
-        }           
+        }    
+
+        addafter("Sell-to Contact")     
+        {
+            field("Distributor/Agent Id";"Distributor/Agent Id")
+            {
+                ApplicationArea = All;
+            }
+
+            field("Finders Fee";"Finders Fee")
+            {
+                ApplicationArea = All;
+            }
+            
+            field("Shipment Approved CRM";"Shipment Approved CRM")
+            {
+               ApplicationArea = All;
+            }
+        }     
         
     }   
     

@@ -16,7 +16,29 @@ pageextension 50009 "DXCPostedRetReceipPageExt" extends "Posted Return Receipt" 
                 Editable = false;     
             }    
 
-        }           
+        }   
+
+        addafter("Sell-to Contact")     
+        {
+            field("Distributor/Agent Id";"Distributor/Agent Id")
+            {
+                ApplicationArea = All;
+            }
+
+            field("Finders Fee";"Finders Fee")
+            {
+                ApplicationArea = All;
+            }
+        }
+
+        addbefore("Ship-to Code")
+        {
+            field("Shipment Approved CRM";"Shipment Approved CRM")
+            {
+               ApplicationArea = All;
+            }
+            
+        }         
         
     }   
     

@@ -37,9 +37,9 @@ tableextension 50000 "DXCSalesHeaderExtension" extends "Sales Header"
             DataClassification = ToBeClassified;
         }
 
-        field(50006; "Shipment Approved"; Boolean)
+        field(50006; "Shipment Approved CRM"; Boolean)
         {
-            Caption = 'Shipment Approved';
+            Caption = 'Shipment Approved CRM';
             DataClassification = ToBeClassified;
         }
         

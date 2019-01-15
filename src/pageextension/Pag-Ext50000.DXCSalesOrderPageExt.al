@@ -34,9 +34,9 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
             }
         }
 
-        addafter("Ship-to Address")
+        addbefore(ShippingOptions)
         {
-            field("Shipment Approved";"Shipment Approved")
+            field("Shipment Approved CRM";"Shipment Approved CRM")
             {
                ApplicationArea = All;
             }

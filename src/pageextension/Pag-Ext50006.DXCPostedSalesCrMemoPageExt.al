@@ -16,7 +16,29 @@ pageextension 50006 "DXCPostedSalesCrMemoPageExt" extends "Posted Sales Credit M
                 Editable = false;     
             }    
 
-        }           
+        } 
+
+        addafter("Sell-to Contact")     
+        {
+            field("Distributor/Agent Id";"Distributor/Agent Id")
+            {
+                ApplicationArea = All;
+            }
+
+            field("Finders Fee";"Finders Fee")
+            {
+                ApplicationArea = All;
+            }
+        }
+
+        addbefore("Ship-to Name")
+        {
+            field("Shipment Approved CRM";"Shipment Approved CRM")
+            {
+               ApplicationArea = All;
+            }
+            
+        }      
         
     }   
     
