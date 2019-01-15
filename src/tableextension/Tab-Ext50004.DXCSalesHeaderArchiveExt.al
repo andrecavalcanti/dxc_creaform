@@ -26,11 +26,11 @@ tableextension 50004 "DXCSalesHeaderArchiveExt" extends "Sales Header Archive"
             Editable = false;
         }
         
-        field(50004; "Distributor/Agent Id"; Integer)
+        field(50004; "Distributor/Agent Id"; Code[20])
         {
             Caption = 'Distributor/Agent Id';
             DataClassification = ToBeClassified;
-            Editable = false;
+            TableRelation = Customer;
         }
         
         field(50005; "Finders Fee"; Decimal)
