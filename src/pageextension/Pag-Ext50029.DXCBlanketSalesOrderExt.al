@@ -2,6 +2,20 @@ pageextension 50029 "DXCBlanketSalesOrderExt" extends "Blanket Sales Order" //My
 {
     layout
     {
+
+        addafter(Status)
+        {
+            field("Order Type"; "Order Type")
+            {
+                ApplicationArea = All;                                     
+            }
+
+            field("Internal RMA Number";"Internal RMA Number")
+            {
+                ApplicationArea = All;
+            }        
+
+        } 
         addafter("Sell-to Contact")     
         {
             field("Distributor/Agent Id";"Distributor/Agent Id")
