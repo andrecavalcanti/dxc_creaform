@@ -29,7 +29,7 @@ tableextension 50007 "DXCItemExtension" extends Item //MyTargetTableId
 
         field(50005;"Conflict Minerals";Option)
         {
-            OptionMembers = " ","Conflict Free", "Indeterminable", Unknown;                      
+            OptionMembers = " ","Conflict Free", Exempt, "Indeterminable", Unknown;                      
         }
 
         field(50006;"WEEE";Option)
