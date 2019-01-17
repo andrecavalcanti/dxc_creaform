@@ -81,8 +81,9 @@ codeunit 50000 "DXCEventHandling"
     // >> AMC-39
 
     //---Codeunits---
-
-      [EventSubscriber(ObjectType::Codeunit, 81, 'OnBeforeConfirmSalesPost', '', false, false)]
+    
+    // ---C81---
+    [EventSubscriber(ObjectType::Codeunit, 81, 'OnBeforeConfirmSalesPost', '', false, false)]
     local procedure HandleBeforeConfirmSalesPostOnSalesPostYesNo(var SalesHeader : Record "Sales Header";var HideDialog : Boolean);
     begin
         // >> AMC-77
@@ -95,12 +96,26 @@ codeunit 50000 "DXCEventHandling"
 
         //  << AMC-77
     end;
-
+    // ---C91---
     [EventSubscriber(ObjectType::Codeunit, 91, 'OnBeforeConfirmPost', '', false, false)]
     local procedure HandleBeforeConfirmPurchPostOnPurchPostYesNo(var PurchaseHeader : Record "Purchase Header";var HideDialog : Boolean);
     begin
         // >> AMC-77
 
+        if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::Order then
+          exit;
+
+        ConfirmPurchPost(PurchaseHeader);
+
+        HideDialog := true;
+        // << AMC-77
+    end;
+
+    // ---C92---
+    [EventSubscriber(ObjectType::Codeunit, 92, 'OnBeforeConfirmPost', '', false, false)]
+    local procedure HandleBeforeConfirmPostOnPurchPostPrint(var PurchaseHeader : Record "Purchase Header";var HideDialog : Boolean);
+    begin
+        // >> AMC-77
         if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::Order then
           exit;
 
