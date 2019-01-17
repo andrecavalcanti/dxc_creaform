@@ -41,8 +41,8 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
                ApplicationArea = All;
             }
             
-        }
+        }    
                 
-    }   
+    }      
     
 }

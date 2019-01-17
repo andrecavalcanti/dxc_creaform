@@ -8,6 +8,10 @@ codeunit 50000 "DXCEventHandling"
         Location : Record Location;
         Item : Record Item;
         SKU : Record "Stockkeeping Unit";
+        ShipInvoiceQst : TextConst ENU='&Ship,&Invoice,Ship &and Invoice',ESM='&Enviar,&Facturar,E&nviar y facturar',FRC='&Livrer,&Facturer,Livrer &et Facturer',ENC='&Ship,&Invoice,Ship &and Invoice';
+        PostConfirmQst : TextConst Comment='%1 = Document Type',ENU='Do you want to post the %1?',ESM='¿Confirma que desea registrar el/la %1?',FRC='Désirez-vous reporter la %1?',ENC='Do you want to post the %1?';
+        ReceiveInvoiceQst : TextConst ENU='&Receive,&Invoice,Receive &and Invoice',ESM='&Recibir,&Facturar,R&ecibir y facturar',FRC='&Réception,&Facture,Réception &et Facture',ENC='&Receive,&Invoice,Receive &and Invoice';
+        NothingToPostErr : TextConst ENU='There is nothing to post.',ESM='No hay nada que registrar.',FRC='Il n''y a rien à reporter.',ENC='There is nothing to post.';
 
     trigger OnRun();
     begin
@@ -77,6 +81,101 @@ codeunit 50000 "DXCEventHandling"
     // >> AMC-39
 
     //---Codeunits---
+
+      [EventSubscriber(ObjectType::Codeunit, 81, 'OnBeforeConfirmSalesPost', '', false, false)]
+    local procedure HandleBeforeConfirmSalesPostOnSalesPostYesNo(var SalesHeader : Record "Sales Header";var HideDialog : Boolean);
+    begin
+        // >> AMC-77
+        if SalesHeader."Document Type" <> SalesHeader."Document Type"::Order then
+          exit;
+
+        ConfirmSalesPost(SalesHeader);
+
+        HideDialog := true;
+
+        //  << AMC-77
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, 91, 'OnBeforeConfirmPost', '', false, false)]
+    local procedure HandleBeforeConfirmPurchPostOnPurchPostYesNo(var PurchaseHeader : Record "Purchase Header";var HideDialog : Boolean);
+    begin
+        // >> AMC-77
+
+        if PurchaseHeader."Document Type" <> PurchaseHeader."Document Type"::Order then
+          exit;
+
+        ConfirmPurchPost(PurchaseHeader);
+
+        HideDialog := true;
+        // << AMC-77
+    end;
+
+    local procedure ConfirmSalesPost(var SalesHeader : Record "Sales Header") : Boolean;
+    var
+        Selection : Integer;
+    begin
+
+        // >> AMC-77
+        with SalesHeader do begin
+          case "Document Type" of
+            "Document Type"::Order:
+              begin
+                Selection := STRMENU(ShipInvoiceQst,1);
+                Ship := Selection in [1,3];
+                Invoice := Selection in [2,3];
+                if Selection = 0 then
+                  exit(false);
+              end;
+            "Document Type"::"Return Order":
+              begin
+                Selection := STRMENU(ReceiveInvoiceQst,3);
+                if Selection = 0 then
+                  exit(false);
+                Receive := Selection in [1,3];
+                Invoice := Selection in [2,3];
+              end
+            else
+              if not CONFIRM(PostConfirmQst,false,LOWERCASE(FORMAT("Document Type"))) then
+                exit(false);
+          end;
+          "Print Posted Documents" := false;
+        end;
+        exit(true);
+        // <<  AMC-77
+    end;
+
+    local procedure ConfirmPurchPost(var PurchaseHeader : Record "Purchase Header") : Boolean;
+    var
+        Selection : Integer;
+    begin
+        // >> AMC-77
+        with PurchaseHeader do begin
+          case "Document Type" of
+            "Document Type"::Order:
+              begin
+                Selection := STRMENU(ReceiveInvoiceQst,1);
+                if Selection = 0 then
+                  exit(false);
+                Receive := Selection in [1,3];
+                Invoice := Selection in [2,3];
+              end;
+            "Document Type"::"Return Order":
+              begin
+                Selection := STRMENU(ShipInvoiceQst,3);
+                if Selection = 0 then
+                  exit(false);
+                Ship := Selection in [1,3];
+                Invoice := Selection in [2,3];
+              end
+            else
+              if not CONFIRM(PostConfirmQst,false,LOWERCASE(FORMAT("Document Type"))) then
+                exit(false);
+          end;
+          "Print Posted Documents" := false;
+        end;
+        exit(true);
+        // <<  AMC-77
+    end;
     
 }
 
