@@ -133,7 +133,7 @@ codeunit 50000 "DXCEventHandling"
         PurchHeader : Record "Purchase Header";
         PurchLine : Record "Purchase Line";
     begin
-
+        // >> AMC-71
         PurchHeader := PurchaseHeader;
 
         CheckDimValuePostingHeader(PurchHeader);
@@ -144,7 +144,7 @@ codeunit 50000 "DXCEventHandling"
           repeat
             CheckDimValuePostingLine(PurchLine);
           until PurchLine.NEXT = 0;
-      
+        // << AMC-71
     end;
 
     local procedure ConfirmSalesPost(var SalesHeader : Record "Sales Header") : Boolean;
