@@ -12,7 +12,8 @@ codeunit 50000 "DXCEventHandling"
         PostConfirmQst : TextConst Comment='%1 = Document Type',ENU='Do you want to post the %1?',ESM='¿Confirma que desea registrar el/la %1?',FRC='Désirez-vous reporter la %1?',ENC='Do you want to post the %1?';
         ReceiveInvoiceQst : TextConst ENU='&Receive,&Invoice,Receive &and Invoice',ESM='&Recibir,&Facturar,R&ecibir y facturar',FRC='&Réception,&Facture,Réception &et Facture',ENC='&Receive,&Invoice,Receive &and Invoice';
         NothingToPostErr : TextConst ENU='There is nothing to post.',ESM='No hay nada que registrar.',FRC='Il n''y a rien à reporter.',ENC='There is nothing to post.';
-
+        InvalidDimensionsErr : TextConst Comment='%1 = Document Type, %2 = Document No, %3 = Error text',ENU='The dimensions used in %1 %2 are invalid (Error: %3).',ESM='Las dimensiones usadas en %1 %2 no son válidas (error: %3).',FRC='Les dimensions utilisés dans %1 %2 ne sont pas valides (erreur : %3).',ENC='The dimensions used in %1 %2 are invalid (Error: %3).';
+        LineInvalidDimensionsErr : TextConst Comment='%1 = Document Type, %2 = Document No, %3 = LineNo., %4 = Error text',ENU='The dimensions used in %1 %2, line no. %3 are invalid (Error: %4).',ESM='Las dim. usadas en %1 %2, nº lín. %3 no son válidas (error: %4).',FRC='Les dimensions utilisés dans %1 %2, ligne n° %3, ne sont pas valides (erreur : %4).',ENC='The dimensions used in %1 %2, line no. %3 are invalid (Error: %4).';
     trigger OnRun();
     begin
     end;    
@@ -125,6 +126,27 @@ codeunit 50000 "DXCEventHandling"
         // << AMC-77
     end;
 
+    // ---C415---
+    [EventSubscriber(ObjectType::Codeunit, 415, 'OnBeforeReleasePurchaseDoc', '', false, false)]
+    local procedure HandleAfterReleasePurchaseDocOnReleasePurchDoc(var PurchaseHeader : Record "Purchase Header";PreviewMode : Boolean);
+    var       
+        PurchHeader : Record "Purchase Header";
+        PurchLine : Record "Purchase Line";
+    begin
+
+        PurchHeader := PurchaseHeader;
+
+        CheckDimValuePostingHeader(PurchHeader);
+
+        PurchLine.SETRANGE("Document Type",PurchHeader."Document Type");
+        PurchLine.SETRANGE("Document No.",PurchHeader."No.");
+        if PurchLine.FINDSET then
+          repeat
+            CheckDimValuePostingLine(PurchLine);
+          until PurchLine.NEXT = 0;
+      
+    end;
+
     local procedure ConfirmSalesPost(var SalesHeader : Record "Sales Header") : Boolean;
     var
         Selection : Integer;
@@ -191,6 +213,49 @@ codeunit 50000 "DXCEventHandling"
         exit(true);
         // <<  AMC-77
     end;
-    
+
+    // >> AMC-71
+     [Scope('Personalization')]
+    procedure CheckDimValuePostingHeader(PurchHeader : Record "Purchase Header");
+    var
+        DimMgt : Codeunit DimensionManagement;
+        TableIDArr : array [10] of Integer;
+        NumberArr : array [10] of Code[20];
+    begin
+        with PurchHeader do begin
+          TableIDArr[1] := DATABASE::Vendor;
+          NumberArr[1] := "Pay-to Vendor No.";
+          TableIDArr[2] := DATABASE::"Salesperson/Purchaser";
+          NumberArr[2] := "Purchaser Code";
+          TableIDArr[3] := DATABASE::Campaign;
+          NumberArr[3] := "Campaign No.";
+          TableIDArr[4] := DATABASE::"Responsibility Center";
+          NumberArr[4] := "Responsibility Center";
+          if not DimMgt.CheckDimValuePosting(TableIDArr,NumberArr,"Dimension Set ID") then
+            ERROR(InvalidDimensionsErr,"Document Type","No.",DimMgt.GetDimValuePostingErr);
+        end;
+    end;
+    // << AMC-71
+
+    // >> AMC-71
+    [Scope('Personalization')]
+    procedure CheckDimValuePostingLine(PurchLine : Record "Purchase Line");
+    var
+        DimMgt : Codeunit DimensionManagement;
+        TableIDArr : array [10] of Integer;
+        NumberArr : array [10] of Code[20];
+    begin
+        with PurchLine do begin
+          TableIDArr[1] := DimMgt.TypeToTableID3(Type);
+          NumberArr[1] := "No.";
+          TableIDArr[2] := DATABASE::Job;
+          NumberArr[2] := "Job No.";
+          TableIDArr[3] := DATABASE::"Work Center";
+          NumberArr[3] := "Work Center No.";
+          if not DimMgt.CheckDimValuePosting(TableIDArr,NumberArr,"Dimension Set ID") then
+            ERROR(LineInvalidDimensionsErr,"Document Type","Document No.","Line No.",DimMgt.GetDimValuePostingErr);
+        end;
+    end;
+    // << AMC-71
 }
 
