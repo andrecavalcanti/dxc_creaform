@@ -1,15 +1,12 @@
 
-pageextension 50013 "DXCSalesOrderSubformPageExt" extends "Sales Order Subform" //MyTargetPageId
+pageextension 50036 "DXCPostedSlInvSubformPageExt" extends "Posted Sales Invoice Subform" //MyTargetPageId
 {
     layout
     {        
         addlast(Control1)
         {
-            field("Outstanding Quantity";"Outstanding Quantity")
-            {
-                ApplicationArea = All;
-            }
-               // >> AMC-63
+         
+              // >> AMC-63
             field("Hidden On Invoice"; "Hidden On Invoice")
             {
                 ApplicationArea = All;                
