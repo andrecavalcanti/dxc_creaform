@@ -37,12 +37,12 @@ tableextension 50007 "DXCItemExtension" extends Item //MyTargetTableId
             OptionMembers = " ",Compliant, "Not compliant", "N/A", Inherit;                      
         }
 
-        field(50007;"Obsolesce Code";Option)
+        field(50007;"Obsolescence Code";Option)
         {
-            OptionMembers = " ","End of Line", "Not compliant", "Engineering Change Request";                      
+            OptionMembers = " ",EOL, RMA, ECR;                      
         }
 
-        field(50008;"Obsolesce Date";Date)
+        field(50008;"Obsolescence Date";Date)
         {
                                
         }

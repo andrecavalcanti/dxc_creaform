@@ -43,12 +43,12 @@ pageextension 50010 "DXCPagItemCardExtension" extends "Item Card" //MyTargetPage
 
         addafter("Automatic Ext. Texts")
         {
-            field("Obsolesce Code";"Obsolesce Code")
+            field("Obsolesce Code";"Obsolescence Code")
             {
 
             }
 
-            field("Obsolesce Date";"Obsolesce Date")
+            field("Obsolesce Date";"Obsolescence Date")
             {
 
             }
