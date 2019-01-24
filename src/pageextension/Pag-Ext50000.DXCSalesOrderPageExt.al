@@ -7,11 +7,17 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
             field("On Hold";"On Hold")
             {
                 ApplicationArea = All;
+                  // >> AMC-81
+                Importance = Standard;
+                // << AMC-81
             }    
 
             field("Order Type"; "Order Type")
             {
-                ApplicationArea = All;                                     
+                ApplicationArea = All; 
+                // >> AMC-81
+                Importance = Standard;
+                // << AMC-81                                   
             }
 
             field("Internal RMA Number";"Internal RMA Number")
@@ -26,11 +32,17 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
             field("Distributor/Agent Id";"Distributor/Agent Id")
             {
                 ApplicationArea = All;
+                // >> AMC-81
+                Importance = Standard;
+                // << AMC-81
             }
 
             field("Finders Fee";"Finders Fee")
             {
                 ApplicationArea = All;
+                 // >> AMC-81
+                Importance = Standard;
+                // << AMC-81
             }
         }
 
@@ -41,7 +53,54 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
                ApplicationArea = All;
             }
             
-        }    
+        }
+
+        // >> AMC-81
+
+        movebefore("Shipment Date";"Promised Delivery Date")
+        
+       
+        modify("Sell-to Customer No.")
+        {
+            Importance = Standard;
+        }
+
+        modify("Sell-to Contact")
+        {
+            Importance = Standard;
+        }
+
+        modify("Posting Date")
+        {
+            Importance = Standard;
+        }
+
+        modify("Order Date")
+        {
+            Importance = Standard;
+        }
+
+        modify("Requested Delivery Date")
+        {
+            Importance = Standard;
+        }
+
+        modify("Promised Delivery Date")
+        {
+            Importance = Standard;            
+        } 
+
+        modify("External Document No.")
+        {
+            Importance = Standard;
+        }
+
+        modify(Status)
+        {
+            Importance = Standard;
+        }       
+
+        // << AMC-81    
                 
     }      
     
