@@ -23,6 +23,9 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
             field("Internal RMA Number";"Internal RMA Number")
             {
                 ApplicationArea = All;
+                // >> AMC-81
+                Importance = Additional;
+                // << AMC-81
             }        
 
         } 
@@ -57,8 +60,8 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
 
         // >> AMC-81
 
-        movebefore("Shipment Date";"Promised Delivery Date")
-        
+        moveafter("Requested Delivery Date";"Shipment Date")
+        moveafter("Shipment Date";"Promised Delivery Date")
        
         modify("Sell-to Customer No.")
         {
@@ -99,6 +102,12 @@ pageextension 50000 "DXCSalesOrderPageExt" extends "Sales Order" //MyTargetPageI
         {
             Importance = Standard;
         }       
+
+        modify("WMDM POS")
+        {
+            Importance = Additional;
+        }
+
 
         // << AMC-81    
                 
