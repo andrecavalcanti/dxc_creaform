@@ -9,10 +9,10 @@ tableextension 50013 "DXCPurchHeaderExt" extends "Purchase Header"
         }
 
          // >> AMC-79
-        field(50001; CRM; Boolean)
+     /*    field(50001; CRM; Boolean)
         {
 
-        }
+        } */
         // << AMC-79
 
     }  

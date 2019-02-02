@@ -39,10 +39,10 @@ tableextension 50018 "DXCSalesLineExt" extends "Sales Line"
         // << AMC-63
 
         // >> AMC-79
-        field(50002; CRM; Boolean)
+/*         field(50002; CRM; Boolean)
         {
 
-        }
+        } */
         // << AMC-79
         
         
